@@ -1,0 +1,194 @@
+1. Affichez le nombre d'attributs par document ainsi que l'attribut name. Combien y a-t-il d'attribut par document ? N'affichez que les 12 premières lignes avec la commande head (notebook #2).
+17
+"Luke Skywalker"
+"C-3PO"
+"R2-D2"
+"Darth Vader"
+"Leia Organa"
+"Owen Lars"
+"Beru Whitesun lars"
+"R5-D4"
+"Biggs Darklighter"
+"Obi-Wan Kenobi"
+"Anakin Skywalker"
+"Wilhuff Tarkin"
+Commande : cat people.json | jq '.[] | length | tail n 1' && cat people.json | jq .[].name
+Réponse : réponse de la question 1 si demandé
+
+Il y a 17 attributs par documents
+
+2. Combien y a-t-il de valeur unknown pour l'attribut birth_year ? Utilisez la commande tail afin d'isoler la réponse.
+  "birth_year": "unknown",
+  "count": 42
+}
+Commande : cat people.json | jq 'group_by(.birth_year)[] |{birth_year: .[0].birth_year, count: length}' | tail -n 3
+Réponse : réponse de la question n si demandé
+
+Il y a 42 valeurs unknow
+
+3. Affichez la date de création de chaque personnage et son nom. La date de création doit être de cette forme : l'année, le mois et le jour. N'affichez que les 10 premières lignes. (Pas de Réponse attendue)
+{
+  "created": "2014-12-09T13:50:51.644000Z",
+  "name": "Luke Skywalker"
+}
+{
+  "created": "2014-12-10T15:10:51.357000Z",
+  "name": "C-3PO"
+}
+{
+  "created": "2014-12-10T15:11:50.376000Z",
+Commande : cat people.json | jq '.[] | {created, name}' | head -n 10
+Je n'arrive pas à formater la date correctement en enlevant tout ce qui se trouve après le T
+4. Certains personnages sont nés en même temps. Retrouvez toutes les pairs d'ids (2 ids) des personnages nés en même temps.
+{
+  "birth_year": "102BBY",
+  "count": 2
+}
+{
+  "birth_year": "112BBY",
+  "count": 2
+}
+{
+  "birth_year": "15BBY",
+  "count": 2
+}
+{
+  "birth_year": "19BBY",
+  "count": 2
+}
+{
+  "birth_year": "200BBY",
+  "count": 2
+}
+{
+  "birth_year": "21BBY",
+  "count": 2
+}
+{
+  "birth_year": "22BBY",
+  "count": 2
+}
+{
+  "birth_year": "24BBY",
+  "count": 2
+}
+{
+  "birth_year": "29BBY",
+  "count": 2
+}
+{
+  "birth_year": "31.5BBY",
+  "count": 2
+}
+{
+  "birth_year": "31BBY",
+  "count": 2
+}
+{
+  "birth_year": "33BBY",
+  "count": 2
+}
+{
+  "birth_year": "37BBY",
+  "count": 2
+}
+{
+  "birth_year": "40BBY",
+  "count": 2
+}
+{
+  "birth_year": "41.9BBY",
+  "count": 2
+}
+{
+  "birth_year": "41BBY",
+  "count": 2
+}
+{
+  "birth_year": "44BBY",
+  "count": 2
+}
+{
+  "birth_year": "46BBY",
+  "count": 2
+}
+{
+  "birth_year": "47BBY",
+  "count": 2
+}
+{
+  "birth_year": "48BBY",
+  "count": 2
+}
+{
+  "birth_year": "52BBY",
+  "count": 2
+}
+{
+  "birth_year": "53BBY",
+  "count": 2
+}
+{
+  "birth_year": "54BBY",
+  "count": 2
+}
+{
+  "birth_year": "57BBY",
+  "count": 2
+}
+{
+  "birth_year": "58BBY",
+  "count": 2
+}
+{
+  "birth_year": "600BBY",
+  "count": 2
+}
+{
+  "birth_year": "62BBY",
+  "count": 2
+}
+{
+  "birth_year": "64BBY",
+  "count": 2
+}
+{
+  "birth_year": "66BBY",
+  "count": 2
+}
+{
+  "birth_year": "67BBY",
+  "count": 2
+}
+{
+  "birth_year": "72BBY",
+  "count": 2
+}
+{
+  "birth_year": "82BBY",
+  "count": 2
+}
+{
+  "birth_year": "896BBY",
+  "count": 2
+}
+{
+  "birth_year": "91BBY",
+  "count": 2
+}
+{
+  "birth_year": "92BBY",
+  "count": 2
+}
+{
+  "birth_year": "unknown",
+  "count": 2
+}
+Commande : cat people.json | jq 'group_by(.birth_year)[] |{birth_year: .[0].birth_year, count: length} | .count = 2'
+Réponse : réponse de la question n si demandé
+
+Ma réponse st incomplète je n'ai pas réussi à filter les ids dont en fonction de la sortie de la requète et ma commande .count=2 n'est pas tout à fait bonne car ca me retourne tous les count dans lequel on retourve la valeur 2, par exemeple 42 pour unkonw
+
+5. Renvoyez le numéro du premier film (de la liste) dans lequel chaque personnage a été vu suivi du nom du personnage. N'affichez que les 10 premières lignes. (Pas de Réponse attendue)
+Commande : <commande pour répondre>
+Réponse : Pas réussi

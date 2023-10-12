@@ -1,0 +1,1 @@
+*/1 * * sep, oct, nov, dec, jan, feb * ~/exam_SCHEIWILLER/exam_bash/exam.sh
